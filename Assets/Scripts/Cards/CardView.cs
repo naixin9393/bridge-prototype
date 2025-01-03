@@ -25,7 +25,6 @@ public class CardView : MonoBehaviour {
             rank = value.ToString();
         }
         string spriteName = rank.ToLower() + "_" + card.Suit.ToString().ToLower();
-        Debug.Log(spriteName);
         _cardImage.sprite = Resources.Load<Sprite>("Cards/" + spriteName);
     }
 }

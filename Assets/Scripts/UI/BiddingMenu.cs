@@ -25,11 +25,11 @@ public class BiddingMenu : MonoBehaviour {
     private void UpdateText() {
         biddingText.text = "Your bidding is " + _biddingValue + " " + _biddingSuit;
     }
-    
+
     public void OnConfirmClicked() {
         OnBiddingPlaced?.Invoke(_biddingValue, _biddingSuit);
     }
-    
+
     public void OnPassClicked() {
         OnBiddingPlaced?.Invoke(0, "pass");
     }

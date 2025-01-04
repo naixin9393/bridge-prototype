@@ -1,21 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour
-{
+public class MenuManager : MonoBehaviour {
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject _biddingMenu;
+    [SerializeField] private Text _roundWinnerText;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        _gameManager.OnGameStateChanged += OnGameStateChanged;
+    void Start() {
+        _gameManager.OnGameStateChanged += HandleGameStateChanged;
     }
 
-    private void OnGameStateChanged(GameManager.GameState state) {
-        _biddingMenu.SetActive(state == GameManager.GameState.Bidding);
-    }
-    
     void OnDestroy() {
-        _gameManager.OnGameStateChanged -= OnGameStateChanged;
+        _gameManager.OnGameStateChanged -= HandleGameStateChanged;
+    }
+
+    private void HandleGameStateChanged(GameManager.GamePhase state) {
+        _biddingMenu.SetActive(state == GameManager.GamePhase.Bidding);
+        _roundWinnerText.enabled = state == GameManager.GamePhase.BetweenRounds;
     }
 }

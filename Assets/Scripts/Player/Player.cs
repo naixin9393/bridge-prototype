@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Player {
     public enum PlayerPosition { North, East, South, West }
@@ -14,5 +13,9 @@ public class Player {
 
     public void AddCard(Card card) {
         Hand.Add(card);
+    }
+
+    public void PlayCard(Card card) {
+        Hand.Remove(card);
     }
 }

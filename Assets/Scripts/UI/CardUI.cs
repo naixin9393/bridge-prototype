@@ -1,18 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardView : MonoBehaviour {
+public class CardUI : MonoBehaviour {
     private Image _cardImage;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
 
     public void Initialize(Card card) {
         _cardImage = GetComponent<Image>();
